@@ -1,0 +1,135 @@
+# Diagrama de Classes — Biblioteca Virtual
+
+Copie **somente** o conteúdo do bloco abaixo e cole em
+[Mermaid Live Editor](https://mermaid.live). O diagrama é baseado no projeto
+Java do pacote `bibliotecavirtual`.
+
+```mermaid
+classDiagram
+    direction TB
+
+    class Pessoa {
+        <<abstract>>
+        -String nome
+        -String endereco
+        -String cpf
+        -int idade
+        -String telefone
+        +Pessoa(String nome, String endereco, String cpf, int idade, String telefone)
+        +String getNome()
+        +String getEndereco()
+        +String getCpf()
+        +int getIdade()
+        +String getTelefone()
+        +void setNome(String nome)
+        +void setEndereco(String endereco)
+        +void setCpf(String cpf)
+        +void setIdade(int idade)
+        +void setTelefone(String telefone)
+    }
+
+    class Funcionario {
+        -Double salario
+        -String cargo
+        +Funcionario(Double salario, String cargo, String nome, String endereco, String cpf, int idade, String telefone)
+        +Double getSalario()
+        +void setSalario(Double salario)
+        +String getCargo()
+        +void setCargo(String cargo)
+        +void exibirInformacoes()
+        +void iniciarJornada()
+        +void finalizarJornada()
+    }
+
+    class Membro {
+        -String matricula
+        -String dataDeCadastro
+        +Membro(String matricula, String dataDeCadastro, String nome, String endereco, String cpf, int idade, String telefone)
+        +String getMatricula()
+        +void setMatricula(String matricula)
+        +String getDataDeCadastro()
+        +void setDataDeCadastro(String dataDeCadastro)
+        +void exibirInformacoes()
+    }
+
+    class Exibir {
+        <<interface>>
+        +void exibirInformacoes()
+    }
+
+    class Livro {
+        <<abstract>>
+        -String titulo
+        -String autor
+        -boolean disponivel
+        -int numeroPaginas
+        +Livro(String titulo, String autor, int numeroPaginas)
+        +String getTitulo()
+        +String getAutor()
+        +int getNumeroPaginas()
+        +boolean isDisponibilidade()
+        +void setNumeroPaginas(int numeroPaginas)
+        +void setDisponibilidade(boolean disponibilidade)
+        +String estaDisponivel()
+        +void descricao()
+    }
+
+    class Ebook {
+        -double tamanhoArquivo
+        +Ebook(String titulo, String autor, int numeroPaginas, double tamanhoArquivo)
+        +double getTamanhoArquivo()
+        +void setTamanhoArquivo(double tamanhoArquivo)
+        +void descricao()
+    }
+
+    class LivroFisico {
+        -double peso
+        +LivroFisico(String titulo, String autor, int numeroPaginas, double peso)
+        +double getPeso()
+        +void setPeso(double peso)
+        +void descricao()
+    }
+
+    class Biblioteca {
+        -ArrayList livros
+        +void adicionarLivro(Livro livro)
+        +void listarLivro()
+        +Livro buscarLivro(String titulo)
+        +void emprestar(Livro livro)
+        +void devolver(Livro livro)
+    }
+
+    class Emprestar {
+        <<interface>>
+        +void emprestar(Livro livro)
+        +void devolver(Livro livro)
+    }
+
+    class Principal {
+        +main(String[] args) void$
+    }
+
+    Pessoa <|-- Funcionario
+    Pessoa <|-- Membro
+    Livro <|-- Ebook
+    Livro <|-- LivroFisico
+    Exibir <|.. Funcionario
+    Exibir <|.. Membro
+    Emprestar <|.. Biblioteca
+    Biblioteca "1" *-- "0..*" Livro : livros
+    Emprestar ..> Livro : utiliza
+    Principal ..> Biblioteca : utiliza
+    Principal ..> Funcionario : cria
+    Principal ..> Membro : cria
+    Principal ..> Ebook : cria
+    Principal ..> LivroFisico : cria
+```
+
+## Observações
+
+- O Mermaid não aceita bem acentos em nomes de operações. Por isso,
+  `exibirInformações` foi representado como `exibirInformacoes`.
+- O símbolo `$` em `main(String[] args) void$` indica uma operação estática no
+  Mermaid. No código Java, `main` é estático.
+- Para exportar, use **Actions → Download SVG** ou **PNG** no Mermaid Live
+  Editor.
