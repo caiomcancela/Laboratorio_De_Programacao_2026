@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="br.com.cadastro.FormularioController"
+          alignment="TOP_LEFT" hgap="8" vgap="11" styleClass="formulario">
+    <padding>
+        <Insets top="9" right="30" bottom="62" left="10" />
+    </padding>
+    <columnConstraints>
+        <ColumnConstraints minWidth="110" />
+        <ColumnConstraints minWidth="150" hgrow="ALWAYS" />
+    </columnConstraints>
+
+    <Label text="Informe Cpf:" GridPane.rowIndex="0" />
+    <TextField fx:id="cpfField" GridPane.columnIndex="1" GridPane.rowIndex="0" prefWidth="250" prefHeight="35" />
+
+    <Label text="Nome:" GridPane.rowIndex="1" />
+    <TextField fx:id="nomeField" GridPane.columnIndex="1" GridPane.rowIndex="1" prefWidth="250"/>
+
+    <Label text="Endereço:" GridPane.rowIndex="2" />
+    <TextField fx:id="enderecoField" GridPane.columnIndex="1" GridPane.rowIndex="2" prefWidth="250"/>
+
+    <Label text="Estado:" GridPane.rowIndex="3" />
+    <ComboBox fx:id="estadoCombo" maxWidth="Infinity"
+              GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+    <Label text="Cargo:" GridPane.rowIndex="4" />
+    <ComboBox fx:id="cargoCombo" maxWidth="Infinity"
+              GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+    <Button fx:id="imprimirButton" text="Imprimir Dados" defaultButton="true" styleClass="botao-imprimir" GridPane.rowIndex="5"
+        GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+</GridPane>

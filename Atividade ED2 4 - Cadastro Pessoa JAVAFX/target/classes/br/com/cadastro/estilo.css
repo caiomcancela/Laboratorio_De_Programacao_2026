@@ -1,0 +1,46 @@
+/* Aparência compacta e cinza inspirada na imagem de referência. */
+.formulario {
+    -fx-background-color: #eeeeee;
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-font-size: 12px;
+}
+
+.formulario .label {
+    -fx-text-fill: #202020;
+    
+}
+
+.formulario .text-field,
+.formulario .combo-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0;
+    -fx-border-color: #a9a9a9;
+    -fx-border-width: 1;
+    -fx-border-radius: 0;
+    -fx-pref-height: 28;
+}
+
+.formulario .combo-box .arrow-button {
+    -fx-background-color: linear-gradient(#f9fdff, #c3d9ea);
+    -fx-background-radius: 0;
+    -fx-border-color: transparent transparent transparent #9daebb;
+}
+
+.formulario .combo-box .arrow {
+    -fx-background-color: #33485a;
+}
+
+.formulario .botao-imprimir {
+    -fx-pref-width: 166;
+    -fx-pref-height: 29;
+    -fx-background-color: linear-gradient(#ffffff, #c7ddea);
+    -fx-background-radius: 0;
+    -fx-border-color: #8499a9;
+    -fx-border-radius: 0;
+    -fx-text-fill: #202020;
+    -fx-cursor: hand;
+}
+
+.formulario .botao-imprimir:hover {
+    -fx-background-color: linear-gradient(#ffffff, #b2d4ed);
+}
